@@ -18,14 +18,14 @@ public class Escalera : MonoBehaviour
 	{
 		if(otro.tag == "Player"){
 			mover m = otro.GetComponent<mover>();
-			m._canEnter = true;
+			m.CanEnter = true;
 		}
 	}
 	void OnTriggerExit2D(Collider2D otro)
 	{
 		if(otro.tag == "Player"){
 			mover m = otro.GetComponent<mover>();
-			m._canEnter = false;
+			m.CanEnter = false;
 		}
 	}
 }

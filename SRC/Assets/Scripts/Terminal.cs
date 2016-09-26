@@ -30,4 +30,11 @@ public class Terminal : MonoBehaviour
 		if (c.gameObject.tag == "Player")
 			isInside = false;
 	}
+
+	public void SwitchPuerta()
+	{
+		if (isInside) {
+			Switch.SwitchDoor ();
+		}
+	}
 }

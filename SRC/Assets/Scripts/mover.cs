@@ -5,11 +5,18 @@ public class mover : MonoBehaviour
 {
 	Rigidbody2D _rb;
 
+	public bool Derecha {
+		get{ return _derecha;}
+		set{ _derecha = value;}
+	}
+
 	bool _canJump;
 	bool _walking;
-	public bool _canEnter;
 	bool _ladder;
+	bool _derecha;
+	bool _up;
 
+	public bool CanEnter;
 	public float Velocidad = 6;
 	public float JumpForce = 300;
 
@@ -19,21 +26,27 @@ public class mover : MonoBehaviour
 
 		_canJump = true;
 		_walking = true;
-		_canEnter = false;
+		CanEnter = false;
 		_ladder = false;
+		_derecha = false;
+		_up = true;
 	}
 
 
 
 	void Update () 
 	{
-		float h = Input.GetAxis("Horizontal");
+		
 		float v = Input.GetAxis("Vertical");
-		bool jump = Input.GetButtonDown("Jump"); 
+		float h = Input.GetAxis ("Horizontal");
+		bool jump = Input.GetButtonDown("Jump");
+		float vel = v * (Velocidad * Time.deltaTime);
 
 		if(_walking){
-			float vel = h * (Velocidad * Time.deltaTime);
-			transform.Translate (vel, 0, 0);
+
+			float velh = h*(Velocidad * Time.deltaTime);
+			transform.Translate (velh, 0, 0);
+
 			_rb.gravityScale = 1;
 			_rb.isKinematic = false;
 		
@@ -43,12 +56,14 @@ public class mover : MonoBehaviour
 			}
 		}
 		if (_ladder){
-			float vel = v*(Velocidad*Time.deltaTime);
-			transform.Translate(0,vel,0);
-			_rb.gravityScale = 0;
-			_rb.isKinematic = true;
+			if (_up) {
+				
+				transform.Translate (0, vel, 0);
+				_rb.gravityScale = 0;
+				_rb.isKinematic = true;
+			}
 		}
-		if(_walking && _canEnter && v>0)
+		if(_walking && CanEnter && v>0)
 		{
 			_walking = false;
 			_ladder = true;
@@ -68,4 +83,37 @@ public class mover : MonoBehaviour
 			_canJump = true;
 		}
 	}
+
+
+//	public void Right()
+//	{
+//		_derecha = true;
+//	}
+//	public void Left()
+//	{
+//		_left = true; 
+//	}
+//	public void Up()
+//	{
+//		_up = true;
+//	}
+//	public void Jump()
+//	{
+//		if(_canJump){
+//			_rb.AddForce(new Vector2(0,JumpForce));
+//			_canJump = false;
+//		}
+//	}
+//	public void RightUp ()
+//	{
+//		_derecha = false; 
+//	}
+//	public void LeftUp()
+//	{
+//		_left = false; 
+//	}
+//	public void UpRelease()
+//	{
+//		_up = false;
+//	}
 }
