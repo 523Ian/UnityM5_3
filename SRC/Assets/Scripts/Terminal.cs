@@ -42,4 +42,11 @@ public class Terminal : MonoBehaviour
 			Switch.SwitchDoor ();
 		}
 	}
+
+	public void SwitchPuerta()
+	{
+		if (isInside) {
+			Switch.SwitchDoor ();
+		}
+	}
 }

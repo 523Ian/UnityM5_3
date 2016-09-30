@@ -2,12 +2,20 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+<<<<<<< HEAD
 public class Botones : MonoBehaviour 
 {
 
 	public void Play(string Escena)
 	{
 		SceneManager.LoadScene (Escena);	
+=======
+public class Botones : MonoBehaviour {
+
+	public void Play()
+	{
+		SceneManager.LoadScene ("prueba");	
+>>>>>>> master
 	}
 
 
@@ -16,6 +24,7 @@ public class Botones : MonoBehaviour
 	{
 		Application.Quit ();
 	}
+<<<<<<< HEAD
 
 
 
@@ -23,4 +32,6 @@ public class Botones : MonoBehaviour
 	{
 		SceneManager.LoadScene (Escena);
 	}
+=======
+>>>>>>> master
 }

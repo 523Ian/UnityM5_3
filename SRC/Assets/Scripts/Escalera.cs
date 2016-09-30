@@ -27,7 +27,10 @@ public class Escalera : MonoBehaviour
 		if(otro.tag == "Player"){
 			mover m = otro.GetComponent<mover>();
 			m.CanEnter = false;
+<<<<<<< HEAD
 			_m.SalirEscalera ();
+=======
+>>>>>>> master
 		}
 	}
 }
