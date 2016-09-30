@@ -3,25 +3,22 @@ using System.Collections;
 
 public class Switch : MonoBehaviour 
 {
-	bool isOpen;
+	public bool IsOpen = false;
+	public float DistVertical = 2.5f;
+	public float DistHorizontal = 2.5f; 
 		
-	void Start () 
-	{
-		isOpen = false;
-	}
-
 
 
 	public void SwitchDoor()
 	{
-		if(isOpen)
+		if(IsOpen)
 		{
-			transform.position = new Vector3 (transform.position.x,transform.position.y-2.5f);
-			isOpen  = false;
+			transform.position = new Vector3 (transform.position.x-DistHorizontal,transform.position.y-DistVertical);
+			IsOpen  = false;
 		} else
 		{
-			transform.position = new Vector3 (transform.position.x,transform.position.y+2.5f);
-			isOpen = true;
+			transform.position = new Vector3 (transform.position.x+DistHorizontal,transform.position.y+DistVertical);
+			IsOpen = true;
 		}
 	}
 }
