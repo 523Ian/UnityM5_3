@@ -12,8 +12,6 @@ public class moverPresentacion : MonoBehaviour
 	public GameObject Lvl;
 	public GameObject back;
 
-	public GameObject Presentacion;
-
 	void Update () 
 	{
 		#if UNITY_EDITOR_WIN
