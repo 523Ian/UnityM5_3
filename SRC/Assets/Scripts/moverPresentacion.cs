@@ -11,6 +11,7 @@ public class moverPresentacion : MonoBehaviour
 	public GameObject dot;
 	public GameObject Lvl;
 	public GameObject back;
+	public GameObject Presentacion;
 
 	void Update () 
 	{
@@ -21,6 +22,8 @@ public class moverPresentacion : MonoBehaviour
 			dot.transform.Translate(0,Velo,0);
 			Lvl.transform.Translate(0,-Velo,0);
 			back.transform.Translate(-BackVel,0,0);
+			StartCoroutine(Desactivar());
+			StopCoroutine(Desactivar());
 
 		} 
 		#endif
@@ -31,7 +34,17 @@ public class moverPresentacion : MonoBehaviour
 			dot.transform.Translate(0,Velo,0);
 			Lvl.transform.Translate(0,-Velo,0);
 			back.transform.Translate(-BackVel,0,0);
+			StartCoroutine(Desactivar());
+			StopCoroutine(Desactivar());
 		}
 		#endif
 	}
+
+	IEnumerator Desactivar() 
+	{
+		yield return new WaitForSeconds (1.5f);
+		Presentacion.SetActive (false);
+
+	}
 }
+	
